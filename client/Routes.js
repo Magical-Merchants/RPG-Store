@@ -17,27 +17,26 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAdmin} = this.props
     return (
       <div>
         {/* TODO: have one switch statement, only show certain routes if user is logged in */}
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/admin-tools" component={AdminTools} />
-            <Route exact path="/products" component={AllProducts} />
-            <Route path="/products/:id" component={SingleProduct} />
-            <Redirect to="/home" />
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={AllProducts} />
-            <Route path="/products/:id" component={SingleProduct} />
-          </Switch>
-        )}
+        
+        <Switch>
+        
+          {isAdmin && <Route path="/admin-tools" component={AdminTools} />}
+          {/* isLoggedIn && order history? */}
+          {!isLoggedIn && <Route path="/" exact component={Login} />}
+          {!isLoggedIn && <Route path="/login" component={Login} /> }
+          {!isLoggedIn &&  <Route path="/signup" component={Signup} /> }
+          
+          <Route path="/home" component={Home} />
+          <Route exact path="/products" component={AllProducts} />
+          <Route path="/products/:id" component={SingleProduct} />
+          <Redirect to="/home" />
+        
+        </Switch>
+     
       </div>
     )
   }
