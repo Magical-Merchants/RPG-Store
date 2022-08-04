@@ -4,12 +4,12 @@ import {connect} from 'react-redux'
 /**
  * COMPONENT
  */
-export const Home = (props) => {
-  const {username} = props
+export const AdminTools = (props) => {
+//   const {username} = props
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
+      <h3>Hello World</h3>
     </div>
   )
 }
@@ -19,8 +19,8 @@ export const Home = (props) => {
  */
 const mapState = (state) => {
   return {
-    username: state.auth.username,
+    // username: state.auth.username,
   }
 }
 
-export default connect(mapState)(Home)
+export default connect(mapState)(AdminTools)
