@@ -6,6 +6,8 @@ import Home from './components/Home'
 import AdminTools from './components/AdminTools'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
+import Cart from './components/Cart'
+import OrderHistory from './components/OrderHistory'
 import {me} from './store'
 
 /**
@@ -20,13 +22,31 @@ class Routes extends Component {
     const {isLoggedIn} = this.props
     return (
       <div>
-        {/* TODO: have one switch statement, only show certain routes if user is logged in */}
+        {/* TODO: have one switch statement, only show certain routes if user is logged in. This was our attempt to refactor: */}
+
+        {/* <Switch>
+          {isAdmin && <Route path="/admin-tools" component={AdminTools} />}
+          {!isLoggedIn && <Route path="/" exact component={Login} />}
+          {!isLoggedIn && <Route path="/login" component={Login} />}
+          {!isLoggedIn && <Route path="/signup" component={Signup} />}
+
+          <Route path="/home" component={Home} />
+          <Route exact path="/products" component={AllProducts} />
+          <Route path="/products/:id" component={SingleProduct} />
+          <Route path="/cart" component={Cart} />
+          <Redirect to="/home" />
+        </Switch> */}
+
+        {/* TODO: Change "Redirect" to a 404 */}
+
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/admin-tools" component={AdminTools} />
             <Route exact path="/products" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/order-history" component={OrderHistory} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -36,6 +56,8 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/order-history" component={OrderHistory} />
           </Switch>
         )}
       </div>
@@ -51,7 +73,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
-    isAdmin: state.auth.isAdmin
+    isAdmin: state.auth.isAdmin,
   }
 }
 
