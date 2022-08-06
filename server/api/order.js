@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Order = require('../db/models/Order')
+const {requireToken, isAdmin} = require('./gatekeepingMiddleware')
 
-router.get('/', async (req, res, next) => {
+router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
     const orders = await Order.findAll()
     res.send(orders)
