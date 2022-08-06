@@ -24,7 +24,7 @@ export const getUsers = () => {
 export default function usersReducer(state = initalState, action) {
   switch (action.type) {
     case GOT_USERS:
-      return {...state, allUsers: action.users}
+      return {...state, users: action.users}
     default:
       return state
   }

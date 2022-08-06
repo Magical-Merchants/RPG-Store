@@ -4,8 +4,13 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
 import productsReducer from './products'
+import usersReducer from './users'
 
-const reducer = combineReducers({auth, products: productsReducer})
+const reducer = combineReducers({
+  auth,
+  products: productsReducer,
+  users: usersReducer,
+})
 //state: { auth: authreducer, products: productsreducer}
 
 const middleware = composeWithDevTools(
