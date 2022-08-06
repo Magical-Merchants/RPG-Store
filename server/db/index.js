@@ -6,7 +6,7 @@ const User = require('./models/User')
 const Product = require('./models/Product')
 const Category = require('./models/Category')
 const Order = require('./models/Order')
-const LineItem = require('./models/lineItem')
+const LineItem = require('./models/LineItem')
 
 //associations could go here!
 Product.belongsToMany(Category, {through: 'Product_Category'})
@@ -30,5 +30,6 @@ module.exports = {
     Product,
     Category,
     Order,
+    LineItem
   },
 }
