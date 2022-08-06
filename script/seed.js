@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: {User, Category, Product},
+  models: {User, Category, Product, Order, LineItem},
 } = require('../server/db')
 
 /**
@@ -35,6 +35,8 @@ async function seed() {
       isAdmin: false,
     }),
   ])
+
+  //Creating Products
   const products = await Promise.all([
     Product.create({
       title: 'magical water',
@@ -69,6 +71,21 @@ async function seed() {
       price: 11.99,
     }),
   ])
+
+  Order.create({})
+
+  LineItem.create({
+    orderId: 1,
+    price: 4.999,
+    quantity: 1,
+    productId: 1,
+  })
+  LineItem.create({
+    orderId: 1,
+    price: 11.99,
+    quantity: 2,
+    productId: 4,
+  })
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

@@ -6,6 +6,7 @@ const User = require('./models/User')
 const Product = require('./models/Product')
 const Category = require('./models/Category')
 const Order = require('./models/Order')
+const LineItem = require('./models/lineItem')
 
 //associations could go here!
 Product.belongsToMany(Category, {through: 'Product_Category'})
@@ -13,8 +14,14 @@ Category.belongsToMany(Product, {through: 'Product_Category'})
 
 User.hasMany(Order)
 Order.belongsTo(User)
-Order.belongsToMany(Product, {through: 'Order_Product'})
-Product.belongsToMany(Order, {through: 'Order_Product'})
+// Order.belongsToMany(Product, {through: 'Order_Product'})
+// Product.belongsToMany(Order, {through: 'Order_Product'})
+
+LineItem.belongsTo(Order)
+Order.hasMany(LineItem)
+
+LineItem.belongsTo(Product)
+// TODO: Determine if this is needed... Might also want the following, but we are unsure: Product.hasMany(LineItem)
 
 module.exports = {
   db,
