@@ -19,9 +19,35 @@ module.exports = (User, db) => {
           { model: LineItem, include: [Product] }
         ]}]}
     );
-    
+  };
+  
+  User.prototype.removeFromCart = async function(product) {
+    const cart = await this.getCart();
+    const lineItem = cart.lineItems.find(lineItem => lineItem.productId === product.id);
+    lineItem.quantity--;
+    if (lineItem.quantity) {
+      await lineItem.save();
+    }
+    else {
+      await lineItem.destroy();
+    }
+    return this.getCart();
   }
-    
+  
+  User.prototype.addToCart = async function(product) {
+    const cart = await this.getCart();
+    let lineItem = cart.lineItems.find(lineItem => lineItem.productId === product.id);
+    if (lineItem) {
+      lineItem.quantity++;
+      await lineItem.save();
+    }
+    else {
+      await db.models.lineItem.create({
+        productId: product.id, orderId: cart.id
+      });
+    }
+    return this.getCart();
+  } 
     
     
 }
