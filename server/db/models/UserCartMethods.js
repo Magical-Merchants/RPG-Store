@@ -1,8 +1,8 @@
 module.exports = (User, db) => {
   User.prototype.getCart = async function () {
-    const where = {   //maybe change this const name
+    const where = {   //TODO: maybe change this const name to cartProperties ?
       userId: this.id,
-      status: 'CART' //status of what?
+      status: 'CART' 
     };
     const Order = db.models.order;      //should order line item and product be capitalized?
     const LineItem = db.models.lineItem;
@@ -13,13 +13,20 @@ module.exports = (User, db) => {
     if(!cart) {
       cart = await Order.create(where); 
     }
-    return Order.findByPk(cart.id,
-    { include: [
-        { include: [
-          { model: LineItem, include: [Product] }
-        ]}]}
+    //find an order by its id, include all lineItems that contain matching orderId then include all product info for the productId
+    return Order.findByPk(cart.id,  
+      { include: [
+        { model: LineItem, include: [Product] }
+      ]}
     );
   };
+  
+    // return Order.findByPk(cart.id,
+    // { include: [
+    //     { include: [
+    //       { model: LineItem, include: [Product] }
+    //     ]}]}
+    // );
   
   User.prototype.removeFromCart = async function(product) {
     const cart = await this.getCart();

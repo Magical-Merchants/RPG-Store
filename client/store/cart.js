@@ -29,21 +29,6 @@ export const fetchCart = () => {
     }
   }
 }
-export const removeFromCart = (product) => {
-  const token = window.localStorage.getItem(TOKEN)
-  return async (dispatch) => {
-    try {
-      const {data} = await axios.post('/api/cart/removeFromCart', {
-        headers: {
-          authorization: token,
-        },
-      })
-      dispatch(removedFromCart(data))
-    } catch (error) {
-      console.error(error)
-    }
-  }
-}
 
 export const addToCart = (product) => {
   const token = window.localStorage.getItem(TOKEN)
@@ -55,6 +40,22 @@ export const addToCart = (product) => {
         },
       })
       dispatch(addedToCart(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const removeFromCart = (product) => {
+  const token = window.localStorage.getItem(TOKEN)
+  return async (dispatch) => {
+    try {
+      const {data} = await axios.post('/api/cart/removeFromCart', {
+        headers: {
+          authorization: token,
+        },
+      })
+      dispatch(removedFromCart(data))
     } catch (error) {
       console.error(error)
     }

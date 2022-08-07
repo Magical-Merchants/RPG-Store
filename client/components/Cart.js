@@ -1,15 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-
-// const Cart = () => {
-//   return (
-//     <div>
-//       <h1>Cart</h1>
-      
-//     </div>
-//   )
-// }
+import { fetchCart, addToCart, removeFromCart } from '../store/cart'
 
 export const Cart = ( { cart }) => {
   const lineItems = cart.lineItems || [];
@@ -24,6 +16,8 @@ export const Cart = ( { cart }) => {
         {lineItem.product.photoUrl}
         ${lineItem.price}
         Quantity: {lineItem.quantity}
+        <button>Add 1</button>
+        <button>Remove 1</button>
         </li>
         )
       })
@@ -32,16 +26,24 @@ export const Cart = ( { cart }) => {
     )
 }
 
-const mapState = state => {
+const mapState = (state) => {
   return {
     cart: state.cart
   }
 }
 
-const mapDispatch = dispatch => {
-  //get cart
-  //add to cart
-  //remove from cart
-}
+const mapDispatch = (dispatch) => {
+  return {
+    fetchCart: () => {
+      dispatch(fetchCart());
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
+    },
+    removeFromCart: (product) => {
+      dispatch(removeFromCart(product));
+    }
+  };
+};
 
 export default connect(mapState, mapDispatch)(Cart)
