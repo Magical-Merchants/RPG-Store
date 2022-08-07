@@ -3,17 +3,27 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import { fetchCart, addToCart, removeFromCart } from '../store/cart'
 
-export const Cart = ( { cart }) => {
-  const lineItems = cart.lineItems || [];
+
+// export const Cart = ( { cart }) => {
+
+class Cart extends React.Component {
   
-  return (
+  componentDidMount() {
+    this.props.fetchCart();
+  }
+  
+  render() {
+    
+    const lineItems = this.props.cart.lineItems || [];
+    
+    return (
     <ul>
     {
       lineItems.map(lineItem => {
         return (
         <li key={lineItem.id}>
         {lineItem.product.title}
-        {lineItem.product.photoUrl}
+        <img src= {lineItem.product.photoUrl}/>
         ${lineItem.price}
         Quantity: {lineItem.quantity}
         <button>Add 1</button>
@@ -24,6 +34,8 @@ export const Cart = ( { cart }) => {
     }
     </ul>
     )
+  }
+  
 }
 
 const mapState = (state) => {

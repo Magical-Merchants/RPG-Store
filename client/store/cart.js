@@ -3,8 +3,6 @@ import axios from 'axios'
 
 const TOKEN = 'token'
 
-const initalState = {cart: {}}
-
 // action type:
 const SET_CART = 'SET_CART'
 
@@ -62,11 +60,16 @@ export const removeFromCart = (product) => {
   }
 }
 
+// const initalState = {cart: { lineItems: [] }}
 // reducer:
-export default function cartReducer(state = initalState, action) {
+export default function cartReducer(state = {}, action) {
   switch (action.type) {
     case SET_CART:
-      return {...state, allProducts: action.products}
+      return action.cart
+    // case ADD_TO_CART:
+    //   return {...state, allProducts: action.products}
+    // case REMOVE_FROM_CART:
+    //   return {...state, allProducts: action.products}
     default:
       return state
   }
