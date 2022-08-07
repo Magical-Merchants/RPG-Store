@@ -73,7 +73,9 @@ async function seed() {
   ])
 
 const orders = await Promise.all([
-   Order.create({})
+   Order.create({
+     userId: 1,
+   })
   ])
   
 const lineItems = await Promise.all([
