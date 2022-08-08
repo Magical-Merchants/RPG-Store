@@ -1,4 +1,3 @@
-//add to combinereducers
 import axios from 'axios'
 
 const TOKEN = 'token'
@@ -8,8 +7,6 @@ const SET_CART = 'SET_CART'
 
 // action creators:
 const setCart = (cart) => ({type: SET_CART, cart})
-// const removedFromCart = (cart) => ({type: SET_CART, cart})
-// const addedToCart = (cart) => ({type: SET_CART, cart})
 
 // thunk creators:
 export const fetchCart = () => {
@@ -37,7 +34,6 @@ export const addToCart = (product) => {
           authorization: token,
         },
       })
-      //console.log(data)
       dispatch(setCart(data))
     } catch (error) {
       console.error(error)
@@ -67,10 +63,6 @@ export default function cartReducer(state = {}, action) {
   switch (action.type) {
     case SET_CART:
       return action.cart
-    // case ADD_TO_CART:
-    //   return {...state, allProducts: action.products}
-    // case REMOVE_FROM_CART:
-    //   return {...state, allProducts: action.products}
     default:
       return state
   }
