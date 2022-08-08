@@ -8,8 +8,8 @@ const SET_CART = 'SET_CART'
 
 // action creators:
 const setCart = (cart) => ({type: SET_CART, cart})
-const removedFromCart = (product) => ({type: SET_CART, product})
-const addedToCart = (product) => ({type: SET_CART, product})
+// const removedFromCart = (cart) => ({type: SET_CART, cart})
+// const addedToCart = (cart) => ({type: SET_CART, cart})
 
 // thunk creators:
 export const fetchCart = () => {
@@ -32,12 +32,13 @@ export const addToCart = (product) => {
   const token = window.localStorage.getItem(TOKEN)
   return async (dispatch) => {
     try {
-      const {data} = await axios.post('/api/cart/addToCart', {
+      const {data} = await axios.post('/api/cart/addToCart', product, {
         headers: {
           authorization: token,
         },
       })
-      dispatch(addedToCart(data))
+      //console.log(data)
+      dispatch(setCart(data))
     } catch (error) {
       console.error(error)
     }
@@ -48,12 +49,12 @@ export const removeFromCart = (product) => {
   const token = window.localStorage.getItem(TOKEN)
   return async (dispatch) => {
     try {
-      const {data} = await axios.post('/api/cart/removeFromCart', {
+      const {data} = await axios.post('/api/cart/removeFromCart', product, {
         headers: {
           authorization: token,
         },
       })
-      dispatch(removedFromCart(data))
+      dispatch(setCart(data))
     } catch (error) {
       console.error(error)
     }

@@ -13,7 +13,6 @@ class Cart extends React.Component {
   }
   
   render() {
-    
     const lineItems = this.props.cart.lineItems || [];
     
     return (
@@ -26,8 +25,8 @@ class Cart extends React.Component {
         <img src= {lineItem.product.photoUrl}/>
         ${lineItem.price}
         Quantity: {lineItem.quantity}
-        <button>Add 1</button>
-        <button>Remove 1</button>
+        <button type='button' onClick={() => this.props.addToCart(lineItem.product)}>Add 1</button>
+        <button type='button' onClick={() => this.props.removeFromCart(lineItem.product)}>Remove 1</button>
         </li>
         )
       })
