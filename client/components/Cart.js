@@ -16,6 +16,7 @@ class Cart extends React.Component {
     const lineItems = this.props.cart.lineItems || [];
     
     return (
+      <div>
     <ul>
     {
       lineItems.map(lineItem => {
@@ -32,6 +33,9 @@ class Cart extends React.Component {
       })
     }
     </ul>
+    {/* <Link to ={}> */}
+    {/* //checkout button, list of orders, total price */}
+    </div>
     )
   }
   

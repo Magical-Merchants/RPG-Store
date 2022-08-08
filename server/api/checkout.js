@@ -11,7 +11,12 @@ app.post('/create-checkout-session:orderId', async (req, res) => {
     include: {model: LineItem},
   })
   const session = await stripe.checkout.sessions.create({
-      Line_items:
+      line_items: order.lineItems.map(lineItem => {
+        return {
+          price: lineItem.price,
+          quantity: lineItem.quantity
+        }
+      }),
     // line_items: [
     //   {
     //     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
