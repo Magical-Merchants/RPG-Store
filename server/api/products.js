@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Product = require("../db/models/Product");
+const {requireToken, isAdmin} = require('./gatekeepingMiddleware')
 
 //  ALL Products
 router.get("/", async (req, res, next) => {
@@ -20,5 +21,15 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/", requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const productCreated = await Product.create(req.body);
+    res.status(201).send(productCreated);
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = router;

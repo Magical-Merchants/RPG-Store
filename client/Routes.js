@@ -19,6 +19,8 @@ class Routes extends Component {
     this.props.loadInitialData()
   }
 
+
+//TODO: was "exact component" a typo? 
   render() {
     const {isLoggedIn, isAdmin} = this.props
     return (

@@ -5,11 +5,13 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
 import productsReducer from './products'
 import usersReducer from './users'
+import cartReducer from './cart'
 
 const reducer = combineReducers({
   auth,
   products: productsReducer,
   users: usersReducer,
+  cart: cartReducer
 })
 //state: { auth: authreducer, products: productsreducer}
 

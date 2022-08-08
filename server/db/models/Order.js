@@ -3,14 +3,9 @@ const db = require('../db')
 
 const Order = db.define('order', {
   status: {
-    type: Sequelize.ENUM(
-      'pending',
-      'processing',
-      'shipped',
-      'complete',
-      'cancelled'
-    ),
-    defaultValue: 'pending',
+    type: Sequelize.ENUM('CART', 'ORDER'),
+    defaultValue: 'CART',
+    allowNull: false
   },
 
   // // Changed STRING type to ENUM
