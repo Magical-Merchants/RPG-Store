@@ -42,8 +42,8 @@ class Routes extends Component {
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
 
-          <Route path="/not-found" component={NotFound} />
-          <Redirect to="/not-found" />
+          {/* <Route path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" /> */}
         </Switch>
 
         {/* TODO: Change login & signup to redirect to home instead of 404 */}

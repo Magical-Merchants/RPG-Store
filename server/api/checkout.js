@@ -6,17 +6,17 @@ app.use(express.static('public'))
 
 const YOUR_DOMAIN = 'http://localhost:8080'
 
-app.post('/create-checkout-session:orderId', async (req, res) => {
-  const order = await Order.findById(req.params.orderId, {
+app.post('/create-checkout-session', async (req, res) => {
+  const order = await Order.findById(req.body.orderId, {
     include: {model: LineItem},
   })
   const session = await stripe.checkout.sessions.create({
-      line_items: order.lineItems.map(lineItem => {
-        return {
-          price: lineItem.price,
-          quantity: lineItem.quantity
-        }
-      }),
+    line_items: order.lineItems.map((lineItem) => {
+      return {
+        price: lineItem.price,
+        quantity: lineItem.quantity,
+      }
+    }),
     // line_items: [
     //   {
     //     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
@@ -28,7 +28,6 @@ app.post('/create-checkout-session:orderId', async (req, res) => {
     success_url: `${YOUR_DOMAIN}?success=true`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   })
-
   res.redirect(303, session.url)
 })
 
