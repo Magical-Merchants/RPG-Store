@@ -2,12 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts } from "../store/products";
+import { addToCart } from "../store/cart";
 
 class AllProducts extends React.Component {
   componentDidMount() {
     this.props.getProducts();
   }
   render() {
+    
     return (
     <div>
       <h2>Products</h2>
@@ -24,7 +26,9 @@ class AllProducts extends React.Component {
           </div>
         <img src= {product.photoUrl}/>
       </Link>
-     
+      
+      <p><button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button></p>
+      
      </div>
     
      ))}
@@ -36,6 +40,7 @@ class AllProducts extends React.Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products.allProducts,
+    cart: state.cart,
   };
 };
 
@@ -43,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProducts: () => {
       dispatch(getProducts());
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
     },
   };
 };
