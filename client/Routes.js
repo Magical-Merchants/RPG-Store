@@ -8,6 +8,7 @@ import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import Cart from './components/Cart'
 import OrderHistory from './components/OrderHistory'
+import NotFound from './components/NotFound'
 import {me} from './store'
 
 /**
@@ -18,48 +19,32 @@ class Routes extends Component {
     this.props.loadInitialData()
   }
 
+
+//TODO: was "exact component" a typo? 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAdmin} = this.props
     return (
       <div>
-        {/* TODO: have one switch statement, only show certain routes if user is logged in. This was our attempt to refactor: */}
-
-        {/* <Switch>
+        <Switch>
           {isAdmin && <Route path="/admin-tools" component={AdminTools} />}
           {!isLoggedIn && <Route path="/" exact component={Login} />}
           {!isLoggedIn && <Route path="/login" component={Login} />}
           {!isLoggedIn && <Route path="/signup" component={Signup} />}
 
+          {isLoggedIn && (
+            <Route path="/order-history" component={OrderHistory} />
+          )}
+
           <Route path="/home" component={Home} />
           <Route exact path="/products" component={AllProducts} />
           <Route path="/products/:id" component={SingleProduct} />
           <Route path="/cart" component={Cart} />
-          <Redirect to="/home" />
-        </Switch> */}
 
-        {/* TODO: Change "Redirect" to a 404 */}
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
+        </Switch>
 
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/admin-tools" component={AdminTools} />
-            <Route exact path="/products" component={AllProducts} />
-            <Route path="/products/:id" component={SingleProduct} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/order-history" component={OrderHistory} />
-            <Redirect to="/home" />
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={AllProducts} />
-            <Route path="/products/:id" component={SingleProduct} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/order-history" component={OrderHistory} />
-          </Switch>
-        )}
+        {/* TODO: Change login & signup to redirect to home instead of 404 */}
       </div>
     )
   }
