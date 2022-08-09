@@ -26,7 +26,6 @@ router.get("/", requireToken, async (req, res, next) => {
 router.post("/addToCart", requireToken, async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    //console.log(req.headers)
     //TODO: when console logging, it's clear that the req.headers here doesn't have an authorization property, which is strange since it seems like we're setting one in the addToCart thunk.
     res.send(await user.addToCart(req.body));
   } catch (err) {
