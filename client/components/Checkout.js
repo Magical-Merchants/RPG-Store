@@ -13,20 +13,24 @@ class Checkout extends React.Component {
       const lineItems = this.props.cart.lineItems || [];
       
       return (
-      <ul>
-      {
-        lineItems.map(lineItem => {
-          return (
-          <li key={lineItem.id}>
-          {lineItem.product.title}
-          <img src= {lineItem.product.photoUrl}/>
-          ${lineItem.price}
-          Quantity: {lineItem.quantity}
-          </li>
-          )
-        })
-      }
-      </ul>
+        <div>
+          <ul>
+          {
+            lineItems.map(lineItem => {
+              return (
+              <li key={lineItem.id}>
+              {lineItem.product.title}
+              <img src= {lineItem.product.photoUrl}/>
+              ${lineItem.price}
+              Quantity: {lineItem.quantity}
+              </li>
+              )
+            })
+          }
+          </ul>
+          <div>Total Cost: ${lineItems.reduce((accum, lineItem) => accum + lineItem.price * lineItem.quantity)
+    }</div>
+        </div>
       )
     }
     
