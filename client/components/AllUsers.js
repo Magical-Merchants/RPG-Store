@@ -8,9 +8,18 @@ class AllUsers extends Component {
   }
 
   render() {
+    const users = this.props.users
+    
     return (
       <div>
-        <h3>Let's test viewing all the users...</h3>
+        <h2>Users</h2>
+        {users.map(user => {
+          return (
+          <div key={user.id}>
+          {user.id}: {user.username}
+          </div>
+          )
+        })}
       </div>
     )
   }
@@ -18,7 +27,7 @@ class AllUsers extends Component {
 
 const mapState = (state) => {
   return {
-    users: state.users.allUsers,
+    users: state.users.users,
   }
 }
 
