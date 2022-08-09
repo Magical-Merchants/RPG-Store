@@ -16,7 +16,8 @@ class AllUsers extends Component {
         {users.map(user => {
           return (
           <div key={user.id}>
-          {user.id}: {user.username}
+          <p> {user.id}: {user.username} </p>
+          <p>Account type: {user.isAdmin === true ? 'Admin' : 'Regular user'} {!user.isAdmin && <button>Promote to Admin</button>} </p>
           </div>
           )
         })}

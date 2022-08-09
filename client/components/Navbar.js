@@ -7,7 +7,7 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
   return (
-    <div>
+    <div id='navbar'>
       <h1>FS-App-Template</h1>
       <nav>
         <Link to="/cart">Cart</Link>
