@@ -1,7 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {getProducts} from '../store/products'
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getProducts } from "../store/products";
+import { addToCart } from "../store/cart";
 import AddProduct from './AddProduct'
 
 class AllProducts extends React.Component {
@@ -27,6 +28,11 @@ class AllProducts extends React.Component {
               <img src={product.photoUrl} />
             </Link>
           </div>
+      
+      <p><button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button></p>
+      
+     </div>
+    
         ))}
       </div>
     )
@@ -36,6 +42,7 @@ class AllProducts extends React.Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products.allProducts,
+    cart: state.cart,
     isAdmin: state.auth.isAdmin,
   }
 }
@@ -44,6 +51,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProducts: () => {
       dispatch(getProducts())
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
     },
     loadInitialData() {
       dispatch(me())

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
   //not sure if we will use this
 import { getSingleProduct } from "../store/products";
+import { addToCart } from "../store/cart";
+
 
 class SingleProduct extends React.Component {
   
@@ -22,6 +24,8 @@ class SingleProduct extends React.Component {
           <p>In stock: {product.inventoryQty}</p>
           
         <img src= {product.photoUrl}/>
+        
+        <p><button onClick={() => this.props.addToCart(product)}>Add to Cart</button></p>
 
     </div>
     )
@@ -31,6 +35,7 @@ class SingleProduct extends React.Component {
 const mapStateToProps = (state) => {
   return {
     product: state.products.singleProduct,
+    cart: state.cart,
   };
 };
 
@@ -38,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSingleProduct: (id) => {
       dispatch(getSingleProduct(id));
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
     },
   };
 };
