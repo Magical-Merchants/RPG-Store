@@ -19,8 +19,7 @@ class Routes extends Component {
     this.props.loadInitialData()
   }
 
-
-//TODO: was "exact component" a typo? 
+  //TODO: was "exact component" a typo?
   render() {
     const {isLoggedIn, isAdmin} = this.props
     return (
@@ -40,11 +39,11 @@ class Routes extends Component {
           <Route path="/products/:id" component={SingleProduct} />
           <Route path="/cart" component={Cart} />
 
-          <Route path="/not-found" component={NotFound} />
-          <Redirect to="/not-found" />
+          <Route component={Home} />
+          {/* <Route component={NotFound} /> */}
         </Switch>
 
-        {/* TODO: Change login & signup to redirect to home instead of 404 */}
+        {/* TODO: Route to 404 when pages don't exist */}
       </div>
     )
   }
