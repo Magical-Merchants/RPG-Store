@@ -21,7 +21,7 @@ class AllProducts extends React.Component {
       <Link to={`/products/${product.id}`}>
         <h3>{product.title}</h3>
           <div>
-          <p>Price: {product.price}</p>
+          <p>Price: ${product.price}</p>
           <p>In stock: {product.inventoryQty}</p>
           </div>
         <img src= {product.photoUrl}/>

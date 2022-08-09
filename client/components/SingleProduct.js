@@ -20,7 +20,7 @@ class SingleProduct extends React.Component {
       <h3> {product.title} </h3>
       
           <p>Description: {product.description}</p>
-          <p>Price: {product.price}</p>
+          <p>Price: ${product.price}</p>
           <p>In stock: {product.inventoryQty}</p>
           
         <img src= {product.photoUrl}/>
