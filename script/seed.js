@@ -47,7 +47,7 @@ async function seed() {
       price: 4.99,
     }),
     Product.create({
-      title: 'magical powder',
+      title: 'magical hat',
       description: 'dfdsjfg',
       inventoryQty: 6,
       photoUrl:
@@ -55,7 +55,7 @@ async function seed() {
       price: 8.99,
     }),
     Product.create({
-      title: 'magical spray',
+      title: 'magical sword',
       description: 'sdfhguisfghius',
       inventoryQty: 3,
       photoUrl:
@@ -63,7 +63,7 @@ async function seed() {
       price: 1.99,
     }),
     Product.create({
-      title: 'magical wand',
+      title: 'crystal wand',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -71,7 +71,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'blue powder',
+      title: 'pink potion 1',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -79,7 +79,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'amateur wand',
+      title: 'purple elixir',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -87,7 +87,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'green potion',
+      title: 'storm potion',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -95,7 +95,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'pink potion',
+      title: 'beautifying potion',
       description: 'turns you pink. what could be better?',
       inventoryQty: 9,
       photoUrl:
@@ -103,7 +103,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'health potion',
+      title: 'magic crystal',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -111,7 +111,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'crystal wand',
+      title: 'love potion',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -127,7 +127,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'g',
+      title: 'magic astronomy book',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -135,7 +135,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'f',
+      title: 'health potion',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -143,7 +143,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'x',
+      title: 'rainbow crystal',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -151,7 +151,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'y',
+      title: 'another magic book',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -159,7 +159,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'z',
+      title: 'another magic book2',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -167,7 +167,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'a',
+      title: 'another magic book3',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -175,7 +175,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'b',
+      title: 'book of magic pigs',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -183,7 +183,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'c',
+      title: 'book of ice magic',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -191,7 +191,7 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'd',
+      title: 'phoenix ring',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
@@ -199,11 +199,19 @@ async function seed() {
       price: 11.99,
     }),
     Product.create({
-      title: 'e',
+      title: 'amethyst ring',
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
         'https://cdna.artstation.com/p/assets/images/images/012/694/310/large/nastya-avdonina-ay1mjolqn74.jpg?1536060682&dl=1',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'magic staff',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://cdn.fireemblemwiki.org/c/c6/FEWATH_Magic_Staff.png',
       price: 11.99,
     }),
   ])
