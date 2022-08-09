@@ -20,6 +20,16 @@ form div {
   display: inline-block;
 }
 
+
+img {
+  height: 300px;
+  width: 300px;
+}
+
+#navbar {
+  background-color: #37908f;
+}
+
 .cartIcon {
   width: 30px
 }

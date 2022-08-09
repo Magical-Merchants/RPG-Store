@@ -6,12 +6,14 @@ import auth from './auth'
 import productsReducer from './products'
 import usersReducer from './users'
 import cartReducer from './cart'
+import checkoutReducer from './checkout'
 
 const reducer = combineReducers({
   auth,
   products: productsReducer,
   users: usersReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  checkout: checkoutReducer,
 })
 //state: { auth: authreducer, products: productsreducer}
 

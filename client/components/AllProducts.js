@@ -1,7 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {getProducts} from '../store/products'
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getProducts } from "../store/products";
+import { addToCart } from "../store/cart";
 import AddProduct from './AddProduct'
 
 class AllProducts extends React.Component {
@@ -11,6 +12,7 @@ class AllProducts extends React.Component {
   render() {
     const {isAdmin} = this.props
     return (
+
       <div>
         <h2>Products</h2>
 
@@ -24,7 +26,7 @@ class AllProducts extends React.Component {
 
             <div>
               <Link to={`/products/${product.id}`}>
-                <p>Price: {product.price}</p>
+                <p>Price: ${product.price}</p>
               </Link>
 
               <Link to={`/products/${product.id}`}>
@@ -40,9 +42,12 @@ class AllProducts extends React.Component {
             <Link to={`/products/${product.id}`}>
               <img src={product.photoUrl} />
             </Link>
+            
+            <button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button>
           </div>
         ))}
       </div>
+
     )
   }
 }
@@ -50,6 +55,7 @@ class AllProducts extends React.Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products.allProducts,
+    cart: state.cart,
     isAdmin: state.auth.isAdmin,
   }
 }
@@ -58,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProducts: () => {
       dispatch(getProducts())
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
     },
     loadInitialData() {
       dispatch(me())

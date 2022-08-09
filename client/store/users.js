@@ -1,4 +1,5 @@
 import axios from 'axios'
+const TOKEN = 'token'
 
 // initalState:
 const initalState = {users: []}
@@ -10,9 +11,14 @@ const gotAllUsers = (users) => ({type: GOT_USERS, users})
 
 // thunk creators:
 export const getUsers = () => {
+  const token = window.localStorage.getItem(TOKEN)
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('/api/users/')
+      const {data} = await axios.get('/api/users/', {
+        headers: {
+          authorization: token,
+        },
+      })
       dispatch(gotAllUsers(data))
     } catch (error) {
       console.error(error)

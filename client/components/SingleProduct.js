@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getSingleProduct} from '../store/products'
+import { addToCart } from "../store/cart";
 
 class SingleProduct extends React.Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class SingleProduct extends React.Component {
     const {isAdmin} = this.props
     const product = this.props.product
     return (
+
       <div className="single-product">
         <h3> {product.title} </h3>
         {isAdmin && (
@@ -21,10 +23,10 @@ class SingleProduct extends React.Component {
         )}
 
         <p>Description: {product.description}</p>
-        <p>Price: {product.price}</p>
+        <p>Price: ${product.price}</p>
         <p>In stock: {product.inventoryQty}</p>
-
         <img src={product.photoUrl} />
+        <p><button onClick={() => this.props.addToCart(product)}>Add to Cart</button></p>
       </div>
     )
   }
@@ -34,6 +36,7 @@ const mapStateToProps = (state) => {
   return {
     product: state.products.singleProduct,
     isAdmin: state.auth.isAdmin,
+    cart: state.cart,
   }
 }
 
@@ -44,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     loadInitialData() {
       dispatch(me())
+    },
+    addToCart: (product) => {
+      dispatch(addToCart(product));
     },
   }
 }
