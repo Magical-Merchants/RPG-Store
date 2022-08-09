@@ -8,6 +8,7 @@ import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import Cart from './components/Cart'
 import OrderHistory from './components/OrderHistory'
+import UpdateProduct from './components/UpdateProduct'
 import NotFound from './components/NotFound'
 import Checkout from './components/Checkout'
 import {me} from './store'
@@ -20,7 +21,6 @@ class Routes extends Component {
     this.props.loadInitialData()
   }
 
-  //TODO: was "exact component" a typo?
   render() {
     const {isLoggedIn, isAdmin} = this.props
     return (
@@ -37,7 +37,8 @@ class Routes extends Component {
 
           <Route path="/home" component={Home} />
           <Route exact path="/products" component={AllProducts} />
-          <Route path="/products/:id" component={SingleProduct} />
+          <Route exact path="/products/:id" component={SingleProduct} />
+          <Route exact path="/products/:id/update" component={UpdateProduct} />
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
 

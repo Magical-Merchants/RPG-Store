@@ -8,11 +8,16 @@ const initalState = {allProducts: [], singleProduct: {}}
 const GOT_PRODUCTS = 'GOT_PRODUCTS'
 const GOT_SINGLE_PRODUCT = 'GOT_SINGLE_PRODUCT'
 const ADDED_PRODUCT = 'ADDED_PRODUCT'
+const UPDATED_PRODUCT = 'UPDATED_PRODUCT'
 
 // action creators:
 const gotAllProducts = (products) => ({type: GOT_PRODUCTS, products})
 const gotSingleProduct = (product) => ({type: GOT_SINGLE_PRODUCT, product})
 const addedProduct = (newProduct) => ({type: ADDED_PRODUCT, newProduct})
+const updatedProduct = (productToUpdate) => ({
+  type: UPDATED_PRODUCT,
+  productToUpdate,
+})
 
 // thunk creators:
 export const getProducts = () => {
@@ -57,6 +62,26 @@ export const addProduct = (newProduct) => {
   }
 }
 
+export const updateProduct = (productToUpdate, id) => {
+  const token = window.localStorage.getItem(TOKEN)
+  return async (dispatch) => {
+    try {
+      const {data: productUpdated} = await axios.put(
+        `/api/products/${id}`,
+        productToUpdate,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      )
+      dispatch(updatedProduct(productUpdated))
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}
+
 // reducer:
 export default function productsReducer(state = initalState, action) {
   switch (action.type) {
@@ -66,6 +91,8 @@ export default function productsReducer(state = initalState, action) {
       return {...state, singleProduct: action.product}
     case ADDED_PRODUCT:
       return {...state, newProduct: action.newProduct}
+    case UPDATED_PRODUCT:
+      return {...state, updatedProduct: action.updatedProduct}
     default:
       return state
   }
