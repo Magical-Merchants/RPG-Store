@@ -9,6 +9,7 @@ import SingleProduct from './components/SingleProduct'
 import Cart from './components/Cart'
 import OrderHistory from './components/OrderHistory'
 import NotFound from './components/NotFound'
+import Checkout from './components/Checkout'
 import {me} from './store'
 
 /**
@@ -38,6 +39,7 @@ class Routes extends Component {
           <Route exact path="/products" component={AllProducts} />
           <Route path="/products/:id" component={SingleProduct} />
           <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
 
           <Route component={Home} />
           {/* <Route component={NotFound} /> */}
