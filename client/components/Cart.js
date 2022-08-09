@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {fetchCart, addToCart, removeFromCart} from '../store/cart'
 import {createCheckoutSession} from '../store/checkout'
 import CheckoutButton from './CheckoutButton'
@@ -14,6 +14,7 @@ class Cart extends React.Component {
 
   render() {
     const lineItems = this.props.cart.lineItems || []
+    const history = useHistory()
 
     return (
       <div>
@@ -42,8 +43,8 @@ class Cart extends React.Component {
         </ul>
         {/* <Link to ={}> */}
         {/* //checkout button, list of orders, total price */}
-        <CheckoutButton/>
-        
+        {/* <CheckoutButton/> */}
+        <button onClick={history.push('/checkout')}>Checkout</button>
       </div>
     )
   }
