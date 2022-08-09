@@ -51,7 +51,7 @@ async function seed() {
       description: 'dfdsjfg',
       inventoryQty: 6,
       photoUrl:
-        'https://static.wikia.nocookie.net/zelda_gamepedia_en/images/5/58/ALttP_Magic_Powder_Artwork.png/revision/latest/scale-to-width-down/320?cb=20170102023729',
+        'https://media.istockphoto.com/vectors/cartoon-halloween-witch-hat-vector-id596779036?k=20&m=596779036&s=170667a&w=0&h=GdP6f3toDP4cDNXibP9witygWXzQycv8H4qMWrWcFPc=',
       price: 8.99,
     }),
     Product.create({
@@ -59,7 +59,7 @@ async function seed() {
       description: 'sdfhguisfghius',
       inventoryQty: 3,
       photoUrl:
-        'https://media.istockphoto.com/vectors/bottle-with-magic-potion-vector-id1248164289',
+        'https://paizo.com/image/content/PathfinderTales/PZO8500-Hyrm.jpg',
       price: 1.99,
     }),
     Product.create({
@@ -67,7 +67,143 @@ async function seed() {
       description: 'sgssg',
       inventoryQty: 9,
       photoUrl:
-        'https://assetstorev1-prd-cdn.unity3d.com/key-image/528995c1-980e-4ad4-9f2c-4e6a39966621.jpg',
+        'https://www.creativefabrica.com/wp-content/uploads/2019/03/Crystal-Wand-580x386.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'blue powder',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://media.istockphoto.com/vectors/chemistry-glass-tube-filled-with-a-pink-liquid-potion-love-potion-vector-id664592192?s=612x612',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'amateur wand',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://image.shutterstock.com/image-illustration/bottle-recovery-purple-potion-great-260nw-436860214.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'green potion',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://cdna.artstation.com/p/assets/images/images/015/035/966/large/garry-lewis-bottle-pract.jpg?1546810861',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'pink potion',
+      description: 'turns you pink. what could be better?',
+      inventoryQty: 9,
+      photoUrl:
+        'https://media.istockphoto.com/vectors/chemistry-glass-bottle-filled-with-a-pink-liquid-potion-love-potion-vector-id664592044?k=20&m=664592044&s=170667a&w=0&h=7UcWS7LdQPf7tXuEyyyesaRH0tAdhVfe-4KPDfpHMDo=',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'health potion',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://art.ngfiles.com/images/1832000/1832704_monkeyonsticks_magical-rocks.png?f1621528535',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'crystal wand',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://i.pinimg.com/originals/f2/8e/47/f28e478abdffa50e9969e9aea28507e7.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'moon wand',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://w7.pngwing.com/pngs/268/835/png-transparent-sailormoon-s-wand-illustration-sailor-moon-wand-drawing-anime-sailor-moon-cartoon-pretty-guardian-sailor-moon-moon.png',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'g',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://cdn.tutsplus.com/cdn-cgi/image/width=500/vector/uploads/legacy/tuts/000-2011/411-magic-book/final.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'f',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://media.istockphoto.com/vectors/bottle-with-red-potion-game-icon-of-magic-elixir-bright-design-for-vector-id1133997612?k=20&m=1133997612&s=170667a&w=0&h=M2Vv07fVEjEofWuF7Qm52AHYqv0rK-kWLBv2D9yHIEU=',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'x',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://cdna.artstation.com/p/assets/images/images/027/194/228/large/kara-woods-crystal-final.jpg?1590853298',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'y',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://imgc.allpostersimages.com/img/posters/image-of-opened-magic-book-with-magic-lights_u-L-Q103IRV0.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'z',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://www.thechildrensbookreview.com/wp-content/uploads/2010/11/Magic-Book-Featured-Image.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'a',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://i.pinimg.com/originals/e9/9a/65/e99a65a13ac84efe80e32907ee3265c1.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'b',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://images.fineartamerica.com/images-medium-large-5/magic-book-floriana-barbu.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'c',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://imgc.allpostersimages.com/img/posters/image-of-opened-magic-book-with-magic-lights_u-L-Q103IY20.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'd',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://i.pinimg.com/originals/ad/15/c7/ad15c76b537d4c6f180f27e14249ae2f.jpg',
+      price: 11.99,
+    }),
+    Product.create({
+      title: 'e',
+      description: 'sgssg',
+      inventoryQty: 9,
+      photoUrl:
+        'https://cdna.artstation.com/p/assets/images/images/012/694/310/large/nastya-avdonina-ay1mjolqn74.jpg?1536060682&dl=1',
       price: 11.99,
     }),
   ])
