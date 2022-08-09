@@ -12,32 +12,42 @@ class AllProducts extends React.Component {
   render() {
     const {isAdmin} = this.props
     return (
-      <div>
-        <h2>Products</h2>
-
-        {isAdmin && <AddProduct />}
-
-        {this.props.products.map((product) => (
-          <div key={product.id}>
-            <Link to={`/products/${product.id}`}>
-              <h3>{product.title}</h3>
+        <div>
+          <h2>Products</h2>
+  
+          {isAdmin && <AddProduct />}
+  
+          {this.props.products.map((product) => (
+            <div key={product.id}>
+              <Link to={`/products/${product.id}`}>
+                <h3>{product.title}</h3>
+              </Link>
+  
               <div>
-                <p>Price: {product.price}</p>
-                <p>In stock: {product.inventoryQty}</p>
+                <Link to={`/products/${product.id}`}>
+                  <p>Price: {product.price}</p>
+                </Link>
+  
+                <Link to={`/products/${product.id}`}>
+                  <p>In stock: {product.inventoryQty}</p>
+                </Link>
+                
               </div>
-              <img src={product.photoUrl} />
-            </Link>
-          </div>
-      
-      <p><button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button></p>
-      
-     </div>
-    
-        ))}
-      </div>
+              <Link to={`/products/${product.id}`}>
+                <img src={product.photoUrl} />
+              </Link>
+              
+              <button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button>
+            </div>
+          ))}
+          
+        </div>
     )
   }
 }
+
+
+
 
 const mapStateToProps = (state) => {
   return {
