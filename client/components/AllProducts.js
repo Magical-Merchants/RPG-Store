@@ -20,10 +20,24 @@ class AllProducts extends React.Component {
           <div key={product.id}>
             <Link to={`/products/${product.id}`}>
               <h3>{product.title}</h3>
-              <div>
+            </Link>
+
+            <div>
+              <Link to={`/products/${product.id}`}>
                 <p>Price: {product.price}</p>
+              </Link>
+
+              <Link to={`/products/${product.id}`}>
                 <p>In stock: {product.inventoryQty}</p>
-              </div>
+              </Link>
+
+              {isAdmin && (
+                <Link to={`/products/${product.id}/update`}>
+                  <button type="button">Update Product</button>
+                </Link>
+              )}
+            </div>
+            <Link to={`/products/${product.id}`}>
               <img src={product.photoUrl} />
             </Link>
           </div>

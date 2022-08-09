@@ -9,7 +9,7 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
       <h1>Magical Merchants</h1>
       <nav>
         <Link to="/cart">
-          <img src="white-cart.svg" className="cartIcon" alt="Cart"></img>
+          <img src="/white-cart.svg" className="cartIcon" alt="Cart"></img>
         </Link>
 
         {/* These links will display if there is NOT a user logged in. */}
