@@ -16,6 +16,7 @@ export class CheckoutButton extends React.Component {
         </button> */}
         <form action="/create-checkout-session" method="POST">
           {/* <button onClick={navigateToCheckout}>Checkout</button> */}
+          {/* evt.preventDefault() */}
           <button type='submit'>checkout</button>
         </form>
       </div>
