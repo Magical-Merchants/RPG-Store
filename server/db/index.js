@@ -27,6 +27,9 @@ LineItem.belongsTo(Product)
 User.hasMany(Review)
 Review.belongsTo(User)
 
+Product.hasMany(Review)
+Review.belongsTo(Product)
+
 module.exports = {
   db,
   models: {
