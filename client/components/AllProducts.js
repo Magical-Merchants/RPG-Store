@@ -6,19 +6,48 @@ import { addToCart } from "../store/cart";
 import AddProduct from './AddProduct'
 
 class AllProducts extends React.Component {
+  
+  // constructor() {
+  //   super()
+  //   this.filter = this.filter.bind(this);
+  // }
+  
   componentDidMount() {
     this.props.getProducts()
   }
+  
+  filter(category) {
+    console.log("category is", category)
+    if (category === "all") {
+      this.props.products = this.props.products
+    }
+    else {
+      this.props.products = this.products && this.products.filter(product => product.category === category)
+    }
+  }
+  
   render() {
     const {isAdmin} = this.props
+    let products = this.props.products
+    
     return (
 
       <div>
         <h2>Products</h2>
 
         {isAdmin && <AddProduct />}
-
-        {this.props.products.map((product) => (
+        
+        <label>Sort by Category</label>
+        <select onChange={() => this.filter(event.target.value)}>
+          <option value="all">All</option>
+          <option value="potions">Potions</option>
+          <option value="fashion">Fashion</option>
+          <option value="weapons">Weapons</option>
+          <option value="crystals">Crystals</option>
+          <option value="books">Books</option>
+        </select>
+        
+        {products.map((product) => (
           <div key={product.id}>
             <Link to={`/products/${product.id}`}>
               <h3>{product.title}</h3>

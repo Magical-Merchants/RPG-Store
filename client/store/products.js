@@ -9,6 +9,7 @@ const GOT_PRODUCTS = 'GOT_PRODUCTS'
 const GOT_SINGLE_PRODUCT = 'GOT_SINGLE_PRODUCT'
 const ADDED_PRODUCT = 'ADDED_PRODUCT'
 const UPDATED_PRODUCT = 'UPDATED_PRODUCT'
+const FILTERED_PRODUCTS = 'FILTERED_PRODUCTS'
 
 // action creators:
 const gotAllProducts = (products) => ({type: GOT_PRODUCTS, products})
@@ -18,6 +19,7 @@ const updatedProduct = (productToUpdate) => ({
   type: UPDATED_PRODUCT,
   productToUpdate,
 })
+const filteredProducts = (category) => ({type: FILTERED_PRODUCTS, category})
 
 // thunk creators:
 export const getProducts = () => {
