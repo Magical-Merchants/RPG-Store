@@ -91,6 +91,14 @@ img {
   flex-wrap: nowrap;
 }
 
+.allproducts-options-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
 .allproducts-product-list-container {
   display: flex;
   flex-direction: row;
