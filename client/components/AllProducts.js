@@ -7,28 +7,42 @@ import AddProduct from './AddProduct'
 
 class AllProducts extends React.Component {
   
-  // constructor() {
-  //   super()
-  //   this.filter = this.filter.bind(this);
-  // }
-  
-  componentDidMount() {
-    this.props.getProducts()
+  constructor(props) {
+    super(props)
+    this.state = {
+      products: this.props.products || []
+    }
+    this.filterProducts = this.filterProducts.bind(this);
   }
   
-  filter(category) {
-    console.log("category is", category)
+  componentDidMount() {
+      this.props.getProducts()
+  }
+  
+  componentDidUpdate(previousProps) {
+    if (previousProps.products !== this.props.products) {
+      this.setState({
+        products: this.props.products
+      })
+    }
+  }
+  
+  filterProducts(category) {
     if (category === "all") {
-      this.props.products = this.props.products
+       this.setState({
+        products: this.props.products
+      })
     }
     else {
-      this.props.products = this.products && this.products.filter(product => product.category === category)
+       this.setState({
+        products: this.props.products.filter(product => product.category === category)
+      })
     }
   }
   
   render() {
     const {isAdmin} = this.props
-    let products = this.props.products
+    let products = this.state.products
     
     return (
 
@@ -38,7 +52,7 @@ class AllProducts extends React.Component {
         {isAdmin && <AddProduct />}
         
         <label>Sort by Category</label>
-        <select onChange={() => this.filter(event.target.value)}>
+        <select onChange={(event) => this.filterProducts(event.target.value)}>
           <option value="all">All</option>
           <option value="potions">Potions</option>
           <option value="fashion">Fashion</option>
