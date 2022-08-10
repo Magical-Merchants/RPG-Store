@@ -2,6 +2,10 @@ import axios from 'axios'
 
 const TOKEN = 'token'
 
+const clientSecret = new URLSearchParams(window.location.search).get(
+  "payment_intent_client_secret"
+);
+
 const initalState = {}
 
 // action type:
@@ -38,7 +42,7 @@ export const createPaymentIntent = (order) => {
 
 const options = {
   clientSecret,
-  appearance,
+  // appearance,
 }
 
 // reducer:

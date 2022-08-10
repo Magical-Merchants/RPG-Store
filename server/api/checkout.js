@@ -1,24 +1,12 @@
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
-const express = require('express')
-// const router = require('express').Router()
-const app = express()
-app.use(express.static('public'))
+//const express = require('express')
+const router = require('express').Router()
+// const app = express()
+// app.use(express.static('public'))
 
 const YOUR_DOMAIN = 'http://localhost:8080'
 
-app.post('/create-payment-intent', async (req, res) => {
-  const {order} = req.body
-  const intent = stripe.paymentIntents.create({
-    amount:
-      order.lineItems.reduce(
-        (accum, lineItem) => accum + lineItem.price * lineItem.quantity,
-        0
-      ) * 100,
-    currency: 'usd',
-    payment_method_types: ['card'],
-  })
-  res.send({clientSecret: intent.client_secret})
-})
+
 
 app.post('/create-checkout-session', async (req, res) => {
   const order = await Order.findById(req.body.orderId, {

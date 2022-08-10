@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {createCheckoutSession} from '../store/checkout'
+// import {createCheckoutSession} from '../store/checkout'
 // import {Routes, Route, useNavigate} from 'react-router-dom'
 
 export class CheckoutButton extends React.Component {
