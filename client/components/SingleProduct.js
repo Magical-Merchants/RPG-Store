@@ -24,9 +24,9 @@ class SingleProduct extends React.Component {
 
         <p>Description: {product.description}</p>
         <p>Price: ${product.price}</p>
-        <p>In stock: {product.inventoryQty}</p>
+        <p>{product.inventoryQty > 0 ? `In stock: ${product.inventoryQty}` : 'Out of Stock' }</p>
         <img src={product.photoUrl} />
-        <p><button onClick={() => this.props.addToCart(product)}>Add to Cart</button></p>
+        <p>{product.inventoryQty > 0 && <button onClick={() => this.props.addToCart(product)}>Add to Cart</button>}</p>
       </div>
     )
   }
