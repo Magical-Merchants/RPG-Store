@@ -55,6 +55,12 @@ module.exports = (User, db) => {
     }
     return this.getCart();
   } 
+
+  User.prototype.changeCartStatus = async function(product) {
+    const cart = await this.getCart();
+    cart.status = 'ORDER'
+    return this.getCart();
+  }
     
     
 }

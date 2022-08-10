@@ -41,3 +41,12 @@ router.post("/removeFromCart", requireToken, async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/changeCartStatus", requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByToken(req.headers.authorization);
+    res.send(await user.changeCartStatus(req.body));
+  } catch (err) {
+    next(err);
+  }
+});

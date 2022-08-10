@@ -57,6 +57,22 @@ export const removeFromCart = (product) => {
   }
 }
 
+export const changeCartStatus = () => {
+  const token = window.localStorage.getItem(TOKEN)
+  return async (dispatch) => {
+    try {
+      const {data} = await axios.post('/api/cart/changeCartStatus', {
+        headers: {
+          authorization: token,
+        }
+      })
+      dispatch(setCart(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 // const initalState = {cart: { lineItems: [] }}
 // reducer:
 export default function cartReducer(state = {}, action) {
