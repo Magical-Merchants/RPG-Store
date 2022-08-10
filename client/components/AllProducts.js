@@ -30,7 +30,7 @@ class AllProducts extends React.Component {
               </Link>
 
               <Link to={`/products/${product.id}`}>
-                <p>In stock: {product.inventoryQty}</p>
+                <p>{product.inventoryQty > 0 ? `In stock: ${product.inventoryQty}` : 'Out of Stock' }</p>
               </Link>
 
               {isAdmin && (
@@ -43,7 +43,7 @@ class AllProducts extends React.Component {
               <img src={product.photoUrl} />
             </Link>
             
-            <button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button>
+            {product.inventoryQty > 0 && <button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button>}
           </div>
         ))}
       </div>
