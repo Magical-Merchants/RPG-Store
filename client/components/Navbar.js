@@ -5,9 +5,8 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
   return (
-    <div>
-      <h1>Magical Merchants</h1>
-      <nav>
+    <div id="navbar" className="navbar-wrapper-container">
+      <nav className="navbar-links-container">
         <Link to="/cart">
           <img src="/white-cart.svg" className="cartIcon" alt="Cart"></img>
         </Link>
@@ -21,7 +20,7 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
         {isLoggedIn && <Link to="/home">Home</Link>}
         {isLoggedIn && <Link to="/products">Products</Link>}
         {/* The Admin Tools link will only display for administrators. */}
-        {isLoggedIn && isAdmin && <Link to="/admin-tools">Admin Tools</Link>}
+        {/* {isLoggedIn && isAdmin && <Link to="/admin-tools">Admin Tools</Link>} */}
         {isLoggedIn && (
           <a href="#" onClick={handleClick}>
             {' '}
@@ -29,7 +28,9 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
           </a>
         )}
       </nav>
-      <hr />
+      <div className="navbar-links-container">
+        <h1>Magical Merchants</h1>
+      </div>
     </div>
   )
 }
