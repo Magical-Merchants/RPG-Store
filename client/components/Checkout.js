@@ -2,13 +2,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchCart} from '../store/cart'
+import {createPaymentIntent} from '../store/checkout'
+import {PaymentElement, useStripe, useElements} from '@stripe/react-stripe-js'
 
 class Checkout extends React.Component {
   componentDidMount() {
+    this.props.createPaymentIntent()
     this.props.fetchCart()
   }
 
   render() {
+    // const stripePromise = loadStripe(process.env.STRIPE_PRIVATE_KEY)
     const lineItems = this.props.cart.lineItems || []
 
     return (
@@ -24,8 +28,21 @@ class Checkout extends React.Component {
             )
           })}
         </ul>
-        <div>
-          Total Cost: $
+
+        <form id="payment-form" onSubmit={handleSubmit}>
+          <PaymentElement id="payment-element" />
+          <button disabled={isLoading || !stripe || !elements} id="submit">
+            <span id="button-text">
+              {isLoading ? (
+                <div className="spinner" id="spinner"></div>
+              ) : (
+                'Pay now'
+              )}
+            </span>
+          </button>
+          s{message && <div id="payment-message">{message}</div>}
+        </form>
+        {/* Total Cost: $
           {lineItems.reduce(
             (accum, lineItem) => accum + lineItem.price * lineItem.quantity,
             0
@@ -33,7 +50,7 @@ class Checkout extends React.Component {
         </div>
         <div>Shipping Information:</div>
         <div>Credit Card Information:</div>
-        <div>comfirmation button:</div>
+        <div>comfirmation button:</div> */}
       </div>
     )
   }
@@ -49,6 +66,9 @@ const mapDispatch = (dispatch) => {
   return {
     fetchCart: () => {
       dispatch(fetchCart())
+    },
+    createPaymentIntent: (paymentIntent) => {
+      dispatch(createPaymentIntent(paymentIntent))
     },
   }
 }
