@@ -36,7 +36,7 @@ export const promoteUser = (user) => {
         headers: {
           authorization: token,
         }});
-      dispatch(promoteUser(user));
+      dispatch(promotedUser(user));
     }
     catch (error) {
       console.log(error);
