@@ -51,7 +51,7 @@ class AddProduct extends React.Component {
   render() {
     return (
       <div className="new-product-form-container">
-        <h2>Add a new product:</h2>
+        <h2 className="pageheader">Add a new product:</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             Title:

@@ -16,31 +16,32 @@ class Cart extends React.Component {
     const lineItems = this.props.cart.lineItems || []
 
     return (
-      <div>
-        <ul>
-          {lineItems.map((lineItem) => {
-            return (
-              <li key={lineItem.id}>
-                {lineItem.product.title}
-                <img src={lineItem.product.photoUrl} />${lineItem.price}
-                Quantity: {lineItem.quantity}
-                <button
-                  type="button"
-                  onClick={() => this.props.addToCart(lineItem.product)}
-                >
-                  Add 1
-                </button>
-                <button
-                  type="button"
-                  onClick={() => this.props.removeFromCart(lineItem.product)}
-                >
-                  Remove 1
-                </button>
-              </li>
-            )
-          })}
-        </ul>
-        <Link to ={'/checkout'}>Checkout</Link>
+      <div className="cart-wrapper-container">
+        {lineItems.map((lineItem) => {
+          return (
+            <div className="cart-single-item-container" key={lineItem.id}>
+              <img src={lineItem.product.photoUrl} />
+              <h3 className="cart-product-title">{lineItem.product.title}</h3>
+              <p>${lineItem.product.price}</p>
+              <p>Quantity: {lineItem.quantity}</p>
+              <button
+                type="button"
+                onClick={() => this.props.addToCart(lineItem.product)}
+              >
+                Add 1
+              </button>
+              <button
+                type="button"
+                onClick={() => this.props.removeFromCart(lineItem.product)}
+              >
+                Remove 1
+              </button>
+            </div>
+          )
+        })}
+        <Link to={'/checkout'}>
+          <button type="button">Checkout</button>
+        </Link>
         {/* //checkout button, list of orders, total price */}
         {/* <CheckoutButton/> */}
       </div>
@@ -51,7 +52,6 @@ class Cart extends React.Component {
 const mapState = (state) => {
   return {
     cart: state.cart,
-    
   }
 }
 

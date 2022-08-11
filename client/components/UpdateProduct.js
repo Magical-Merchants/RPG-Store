@@ -55,7 +55,7 @@ class UpdateProduct extends React.Component {
     const product = this.props.product
     return (
       <div className="update-single-product">
-        <h3>Update Product</h3>
+        <h3 className="pageheader">Update Product</h3>
 
         <form onSubmit={this.handleSubmit}>
           <label>
