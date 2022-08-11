@@ -43,6 +43,15 @@ async function seed() {
       username: `wayward_traveller`,
       isAdmin: false,
     }),
+
+    User.create({
+      password: 'lovelace22',
+      firstName: `Ada`,
+      lastName: `Love`,
+      email: `ada_love@gmail.com`,
+      username: `ada_love`,
+      isAdmin: false,
+    }),
   ])
 
   //Creating Products
@@ -72,7 +81,7 @@ async function seed() {
       photoUrl:
         'https://paizo.com/image/content/PathfinderTales/PZO8500-Hyrm.jpg',
       price: 1.99,
-      category: "weapons",
+      category: 'weapons',
     }),
     Product.create({
       title: 'crystal wand',
@@ -82,7 +91,7 @@ async function seed() {
       photoUrl:
         'https://www.creativefabrica.com/wp-content/uploads/2019/03/Crystal-Wand-580x386.jpg',
       price: 11.99,
-      category: "weapons",
+      category: 'weapons',
     }),
     Product.create({
       title: 'pinkifying potion',
@@ -127,7 +136,7 @@ async function seed() {
       photoUrl:
         'https://art.ngfiles.com/images/1832000/1832704_monkeyonsticks_magical-rocks.png?f1621528535',
       price: 11.99,
-      category: "crystals"   ,
+      category: 'crystals',
     }),
     Product.create({
       title: 'love potion',
@@ -145,7 +154,7 @@ async function seed() {
       photoUrl:
         'https://w7.pngwing.com/pngs/268/835/png-transparent-sailormoon-s-wand-illustration-sailor-moon-wand-drawing-anime-sailor-moon-cartoon-pretty-guardian-sailor-moon-moon.png',
       price: 11.99,
-      category: "weapons",
+      category: 'weapons',
     }),
     Product.create({
       title: 'magic astronomy book',
@@ -154,7 +163,7 @@ async function seed() {
       photoUrl:
         'https://cdn.tutsplus.com/cdn-cgi/image/width=500/vector/uploads/legacy/tuts/000-2011/411-magic-book/final.jpg',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'health potion',
@@ -172,7 +181,7 @@ async function seed() {
       photoUrl:
         'https://cdna.artstation.com/p/assets/images/images/027/194/228/large/kara-woods-crystal-final.jpg?1590853298',
       price: 11.99,
-      category: "crystals",
+      category: 'crystals',
     }),
     Product.create({
       title: 'magic book',
@@ -181,7 +190,7 @@ async function seed() {
       photoUrl:
         'https://imgc.allpostersimages.com/img/posters/image-of-opened-magic-book-with-magic-lights_u-L-Q103IRV0.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'magic book II',
@@ -190,7 +199,7 @@ async function seed() {
       photoUrl:
         'https://www.thechildrensbookreview.com/wp-content/uploads/2010/11/Magic-Book-Featured-Image.jpg',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'magic book III',
@@ -199,7 +208,7 @@ async function seed() {
       photoUrl:
         'https://i.pinimg.com/originals/e9/9a/65/e99a65a13ac84efe80e32907ee3265c1.jpg',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'book of magic pigs',
@@ -208,7 +217,7 @@ async function seed() {
       photoUrl:
         'https://images.fineartamerica.com/images-medium-large-5/magic-book-floriana-barbu.jpg',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'book of ice magic',
@@ -217,7 +226,7 @@ async function seed() {
       photoUrl:
         'https://imgc.allpostersimages.com/img/posters/image-of-opened-magic-book-with-magic-lights_u-L-Q103IY20.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff',
       price: 11.99,
-      category: "books",
+      category: 'books',
     }),
     Product.create({
       title: 'phoenix ring',
@@ -243,7 +252,7 @@ async function seed() {
       inventoryQty: 9,
       photoUrl: 'https://cdn.fireemblemwiki.org/c/c6/FEWATH_Magic_Staff.png',
       price: 11.99,
-      category: "weapons",
+      category: 'weapons',
     }),
   ])
 

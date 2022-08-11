@@ -20,10 +20,6 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@fontsource/roboto": "^4.5.8",
-    "@mui/material": "^5.10.0",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "compression": "^1.7.3",
