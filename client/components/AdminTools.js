@@ -11,8 +11,8 @@ export const AdminTools = (props) => {
 
   return (
     <div>
-      <h3>Hello World</h3>
-      {/* <AllUsers /> */}
+      <h2>Admin Tools</h2>
+      <AllUsers />
     </div>
   )
 }
