@@ -78,12 +78,10 @@ class AllProducts extends React.Component {
 
                     <div className="allproducts-price-and-stock-container">
                       <span>Price: ${product.price}</span>
-                      <span>In stock: {product.inventoryQty}</span>
+                      <span>{product.inventoryQty > 0 ? `In stock: ${product.inventoryQty}` : 'Out of Stock' }</span>
                     </div>
                     <div>
-                      <button onClick={() => this.props.addToCart(product)}>
-                        Add {product.title} to Cart
-                      </button>
+                    {product.inventoryQty > 0 && <button onClick={() => this.props.addToCart(product)}>Add {product.title} to Cart</button>}
                     </div>
                     {isAdmin && (
                       <Link to={`/products/${product.id}/update`}>

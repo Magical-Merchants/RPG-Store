@@ -25,15 +25,12 @@ class SingleProduct extends React.Component {
           <div className="singleproduct-wrapper-item">
             <div className="singleproduct-price-qty-button-container">
               <p>Price: ${product.price}</p>
-              <p>In stock: {product.inventoryQty}</p>
+              <p>{product.inventoryQty > 0 ? `In stock: ${product.inventoryQty}` : 'Out of Stock' }</p>
               <p>
-                <button onClick={() => this.props.addToCart(product)}>
-                  Add to Cart
-                </button>
+                {product.inventoryQty > 0 && <button onClick={() => this.props.addToCart(product)}>Add to Cart</button>}
               </p>
             </div>
           </div>
-
           {isAdmin && (
             <Link to={`/products/${product.id}/update`}>
               <button type="button">Update product</button>
