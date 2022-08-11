@@ -50,7 +50,7 @@ module.exports = (User, db) => {
     }
     else {
       await db.models.lineItem.create({
-        productId: product.id, orderId: cart.id
+        productId: product.id, orderId: cart.id, quantity: 1, price: product.price
       });
     }
     return this.getCart();
