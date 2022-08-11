@@ -8,8 +8,6 @@ module.exports = router
 // TODO: check that req.params.userId === req.user.id
 // 403 - forbidden
 
-// TODO: Make requireToken & isAdmin work.
-
 router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -23,3 +21,14 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:id', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    await user.update(req.body);
+    res.sendStatus(204);
+  }
+  catch (error) {
+    next(error);
+  }
+});
