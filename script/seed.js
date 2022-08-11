@@ -50,7 +50,7 @@ async function seed() {
     Product.create({
       title: 'magical water',
       description: lorem.generateSentences(10),
-      inventoryQty: 2,
+      inventoryQty: 0,
       photoUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSqO81cvAxhv6ITnabxN8jw-pZ1HgLfR1fnQ&usqp=CAU',
       price: 4.99,
