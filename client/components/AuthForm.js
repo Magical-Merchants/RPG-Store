@@ -17,6 +17,7 @@ const AuthForm = (props) => {
           </label>
           <input name="username" type="text" />
         </div>
+        {/* TODO: name === 'signup' && JSX -- don't need :  */}
         {name === 'signup' ? (
           <div>
             <label htmlFor="firstName">

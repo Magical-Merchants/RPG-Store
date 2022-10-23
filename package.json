@@ -26,9 +26,11 @@
     "express": "^4.16.4",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
+    "lorem-ipsum": "^2.0.8",
     "morgan": "^1.9.1",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "stripe": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
