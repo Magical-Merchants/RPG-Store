@@ -35,7 +35,9 @@
     "nodemon": "^1.19.4",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
-    "stripe": "^10.0.0"
+    "stripe": "^10.0.0",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
