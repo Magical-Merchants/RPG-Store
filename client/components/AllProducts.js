@@ -45,7 +45,7 @@ class AllProducts extends React.Component {
 
     return (
       <>
-        <h1 className="pageheader">Shop our wares</h1>
+        {/* <h1 className="pageheader">Shop our wares</h1> */}
 
         <div className=".allproducts-wrapper-container">
           <div className="allproducts-wrapper-item">
