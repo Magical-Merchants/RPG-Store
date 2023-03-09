@@ -5,7 +5,9 @@ import {connect} from 'react-redux'
  * COMPONENT
  */
 export const Home = (props) => {
-  const {firstName, lastName} = props
+  const firstName = props.firstName ? props.firstName : 'guest'
+  const lastName = props.lastName ? props.lastName : ''
+
 
   return (
     <div>
