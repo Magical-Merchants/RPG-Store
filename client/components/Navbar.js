@@ -20,7 +20,7 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin}) => {
         {isLoggedIn && <Link to="/home">Home</Link>}
         {isLoggedIn && <Link to="/products">Products</Link>}
         {/* The Admin Tools link will only display for administrators. */}
-        {/* {isLoggedIn && isAdmin && <Link to="/admin-tools">Admin Tools</Link>} */}
+        {isLoggedIn && isAdmin && <Link to="/admin-tools">Admin Tools</Link>}
         {isLoggedIn && (
           <a href="#" onClick={handleClick}>
             {' '}
