@@ -27,14 +27,9 @@ class Routes extends Component {
       <div>
         <Switch>
           {isAdmin && <Route path="/admin-tools" component={AdminTools} />}
-          {/* {!isLoggedIn && <Route path="/" exact component={Login} />} */}
           {!isLoggedIn && <Route path="/login" component={Login} />}
           {!isLoggedIn && <Route path="/signup" component={Signup} />}
-
-          {isLoggedIn && (
-            <Route path="/order-history" component={OrderHistory} />
-          )}
-
+          {isLoggedIn && (<Route path="/order-history" component={OrderHistory} />)}
           <Route path="/home" component={Home} />
           <Route exact path="/products" component={AllProducts} />
           <Route exact path="/products/:id" component={SingleProduct} />
