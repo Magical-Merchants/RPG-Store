@@ -1,3 +1,7 @@
+//Still in development; issue is that when we use requireToken we always receive the error 'bad token'
+
+//We believe it's related to req.headers.authorization
+
 const {
   models: {User},
 } = require('../db')

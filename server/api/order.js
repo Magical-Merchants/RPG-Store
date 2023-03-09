@@ -20,4 +20,14 @@ router.get('/:orderid', async (req, res, next) => {
   }
 })
 
+router.put('/:orderid', requireToken, async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.orderid)
+    await order.update(req.body)
+    res.sendStatus(204)
+  } catch(err) {
+    next(err)
+  }
+})
+
 module.exports = router

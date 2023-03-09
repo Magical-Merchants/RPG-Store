@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchCart} from '../store/cart'
+import {changeCartStatus} from '../store/orders'
 
 class Checkout extends React.Component {
   componentDidMount() {
@@ -33,7 +34,14 @@ class Checkout extends React.Component {
         </div>
         <div>Shipping Information:</div>
         <div>Credit Card Information:</div>
-        <div>comfirmation button:</div>
+        <div>
+          <button
+            type="button"
+            onClick={() => this.props.changeCartStatus({...this.props.cart, status: 'ORDER'})}
+            >
+            Confirmation
+          </button>
+        </div>
       </div>
     )
   }
@@ -42,6 +50,7 @@ class Checkout extends React.Component {
 const mapState = (state) => {
   return {
     cart: state.cart,
+    allOrders: state.allOrders
   }
 }
 
@@ -50,6 +59,9 @@ const mapDispatch = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart())
     },
+    changeCartStatus: (order) => {
+      dispatch(changeCartStatus(order))
+    }
   }
 }
 
